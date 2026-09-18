@@ -14,3 +14,18 @@ To install the addon in your Godot project:
 2. Copy `fg_layout` from this repository into your `res://addons/` directory.
 3. Open your project in Godot.
 4. Enable **FG Layout** in **Project > Project Settings > Plugins**
+
+## New Nodes
+
+### FgBox
+
+A div like box model around one visible direct `Control`-type child node. 
+
+Inspector settings:
+
+- `Margin`: An amount of spacing in px that sits **outside** of this node's border
+- `Padding`: An amount of spacing in px that sits **inside** of this node's border
+- `Background`: A background color for this node
+- `Border`: Controls for border width (in px), border radius (corner radius, in px), and color
+
+Margin is included in the node's minimum size, but stays transparent regardless of background setting. The border is rendered inside the margin.
