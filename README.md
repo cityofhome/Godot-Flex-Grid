@@ -14,6 +14,7 @@ To install the addon in your Godot project:
 2. Copy `fg_layout` from this repository into your `res://addons/` directory.
 3. Open your project in Godot.
 4. Enable **FG Layout** in **Project > Project Settings > Plugins**
+5. Add `FgFlexContainer`, `FgGridContainer`, or `FgBox` through the normal **Create New Node** dialog.
 
 ## New Nodes
 
@@ -104,3 +105,7 @@ Control
 `FgSpacing` stores independently editable `Top`, `Right`, `Bottom`, and `Left` values. Negative values are currently clamped to zero. 
 
 `FgGridTrack` stores a track `Type` and `Value` for explicit grid columns as described above.
+
+## License and Contributing
+
+Licensed under MIT. Please feel free to open issues and/or PRs. 
