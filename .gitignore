@@ -1,0 +1,11 @@
+# Godot editor, import, and build state
+.godot/
+.import/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Local editor settings
+.vscode/
+.idea/
