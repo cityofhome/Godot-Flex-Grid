@@ -106,6 +106,6 @@ Control
 
 `FgGridTrack` stores a track `Type` and `Value` for explicit grid columns as described above.
 
-## License and Contributing
+## License and Contributing
 
 Licensed under MIT. Please feel free to open issues and/or PRs. 
