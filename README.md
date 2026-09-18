@@ -45,6 +45,33 @@ Control
     - TextureRect
 ```
 
+### FgGridContainer
+
+The grid like container. It lays out visible direct `Control`-type child nodes in automatic row-major order. Invisible children and non-`Control`-type children are ignored.
+
+Inspector settings:
+
+- `Columns`: To control the amount of columns in the grid
+- `Column Gap`: To set the distance between grid columns
+- `Row Gap`: To set the distance between grid rows
+
+You can also get finer control over column sizing by using `Column Tracks` with `FgGridTrack` resources. These column tracks override the configuration of `Columns`, so you'll need to set the **Size** to the amount of columns you want. Each column track resource has the following inspector settings:
+
+- `Type`: One of fixed, fraction, or auto to set a column width in pixels, fr, or auto width respectively. 
+- `Value`: Where `Type` is units, `Value` is the amount. E.g. with `Type` set to fixed, a value of `200` represents 200px. 
+
+This container supports automatic placement only. There are no current plans to support explicit cells, spans, row tracks, named areas, or CSS track strings. 
+
+An example scene tree using FgGridContainer might look like:
+
+```text
+Control
+  - FgGridContainer
+    - Button
+    - Label
+    - TextureRect
+```
+
 ### FgBox
 
 A div like box model around one visible direct `Control`-type child node. 
@@ -58,19 +85,22 @@ Inspector settings:
 
 Margin is included in the node's minimum size, but stays transparent regardless of background setting. The border is rendered inside the margin.
 
-This node can either go inside a control node (including FgFlexContainer), or outside, but may only have one direct visible `Control`-type child. If you attempt to include more than one, the editor reports a configuration warning and only the first will participate in the layout. Make use of nested flex containers when the box needs multiple contents. 
+This node can either go inside a control node (including FgFlexContainer and FgGridContainer), or outside, but may only have one direct visible `Control`-type child. If you attempt to include more than one, the editor reports a configuration warning and only the first will participate in the layout. Make use of nested flex or grid containers when the box needs multiple contents. 
 
 An example scene tree using an FgBox might look like:
 
 ```text
 Control
-  - FgBox
-    - FgFlexContainer
-      - Button
-      - Label
-      - TextureRect
+  - FgGridContainer
+    - FgBox
+      - FgFlexContainer
+        - Button
+        - Label
+        - TextureRect
 ```
 
 ### Shared resources
 
 `FgSpacing` stores independently editable `Top`, `Right`, `Bottom`, and `Left` values. Negative values are currently clamped to zero. 
+
+`FgGridTrack` stores a track `Type` and `Value` for explicit grid columns as described above.
